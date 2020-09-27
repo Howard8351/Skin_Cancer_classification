@@ -3,6 +3,7 @@ from tensorflow.keras import Input
 from tensorflow.keras import layers
 from tensorflow.keras import Model
 from tensorflow.data import Dataset
+import math
 
 #建立image dataset
 train_data_path = "D:/皮膚癌資料/HAM10000_images_part_1/"
@@ -31,6 +32,11 @@ def decode_image(image):
     image = tf.image.convert_image_dtype(image, tf.float32)
     return image
 
+batch_size = 32
 #建立訓練資料集
+traindata_size = 5000
 train_data_list = Dataset.list_files(train_data_path + "*.jpg")
-train_data_set  = train_data_list.map(path_process, num_parallel_calls = tf.data.experimental.AUTOTUNE)
+train_dataset   = train_data_list.map(path_process, num_parallel_calls = tf.data.experimental.AUTOTUNE)
+train_dataset   = train_dataset.shuffle(traindata_size).repeat()
+train_dataset   = train_dataset.batch(batch_size)
+train_step_each_epoch = math.ceil(traindata_size/batch_size)
