@@ -71,6 +71,8 @@ def creat_model(channels, number_of_class):
     dropout_layer = layers.Dropout(0.5)(act_layer)
     output_layer  = layers.Dense(number_of_class, activation = 'softmax')(dropout_layer)
 
+    return Model(input_layer, output_layer)
+
 #優化器設定
 optimizer = tf.keras.optimizers.Adam()
 
