@@ -4,14 +4,14 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>07401979-0b52-4806-a200-814e8ea566ce</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>Skin_Cancer_classification_pretraining_model.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>Skin_Cancer_classification</Name>
     <RootNamespace>Skin_Cancer_classification</RootNamespace>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -22,12 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Skin_Cancer_classification_oversampling.py" />
     <Compile Include="Skin_Cancer_classification_pretraining_model - Copy.py" />
     <Compile Include="Skin_Cancer_classification_pretraining_model.py" />
+    <Compile Include="Skin_Cancer_classification_oversampling.py" />
     <Compile Include="Skin_Cancer_classification_undersampling.py" />
-    <Compile Include="skin_cancer_data_rename.py" />
-    <Compile Include="skin_cancer_unbalance_data_oversampling.py" />
+    <Compile Include="skin_cancer_data_rename.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="skin_cancer_unbalance_data_oversampling.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="test.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
